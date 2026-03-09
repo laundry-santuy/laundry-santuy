@@ -1,0 +1,24 @@
+services:
+  backend:
+    build: ../laundry-santuy-backend
+    ports:
+      - "5000:5000"
+    env_file:
+      - ../laundry-santuy-backend/.env
+    networks:
+      - laundry-network
+
+  frontend:
+    build: ../laundry-santuy-frontend
+    ports:
+      - "3000:3000"
+    env_file:
+      - ../laundry-santuy-frontend/.env.local
+    depends_on:
+      - backend
+    networks:
+      - laundry-network
+
+networks:
+  laundry-network:
+    driver: bridge
