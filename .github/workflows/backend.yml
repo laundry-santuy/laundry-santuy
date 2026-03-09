@@ -18,6 +18,8 @@ jobs:
       - uses: actions/checkout@v4
         with:
           repository: laundry-santuy/laundry-santuy-backend
+          token: ${{ secrets.BACKEND_REPO_TOKEN }}
+          ref: main
           path: laundry-santuy-backend
       - name: Use Node.js
         uses: actions/setup-node@v4
